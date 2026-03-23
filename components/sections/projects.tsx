@@ -11,19 +11,23 @@ import Image from "next/image"
 
 const publishedApps = [
   {
-    name: "News Ethiopia",
-    description: "Official news application for Ethiopian Press Agency providing latest news and updates.",
+    name: "Gazetta Plus",
+    description: "Whether you're looking for the latest headlines, exploring archived editions, searching for jobs or bids, or diving into historical media, Gazette Plus is your reliable source.",
     role: "Lead Flutter Developer",
-    company: "INMS - Ethiopian Press Agency",
+    company: "Addis Ababa University",
+    logo: "/icons/Gazetta_plus.png",
+    companyLogo: "/icons/Addis_Ababa_University.png",
     playStoreUrl: "https://play.google.com",
     appStoreUrl: "https://apps.apple.com",
     tags: ["Flutter", "Riverpod", "News"],
   },
   {
-    name: "Origin App",
-    description: "Mobile application developed for Origin Tech with modern UI and seamless performance.",
+    name: "Casa",
+    description: "CASA is an online marketplace developed and managed by Origin Tech PLC that connects property developers, real estate agencies, and potential buyers to list, view, and manage real estate properties.",
     role: "Flutter Developer",
-    company: "Origin Tech",
+    company: "Origin Technologies",
+    logo: "/icons/Casa.png",
+    companyLogo: "/icons/Origin_Technologies.PNG",
     playStoreUrl: "https://play.google.com",
     tags: ["Flutter", "Clean Architecture"],
   },
@@ -89,42 +93,73 @@ export function ProjectsSection() {
                       {publishedApps.map((app) => (
                         <Card key={app.name} className="bg-card border-border hover:border-primary/50 transition-colors">
                           <CardContent className="p-6">
-                            <div className="flex flex-col sm:flex-row gap-4">
-                              <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                <Smartphone className="h-8 w-8 text-primary" />
+                            <div className="flex flex-col sm:flex-row gap-6">
+                              {/* App Icon */}
+                              <div className="w-20 h-20 rounded-2xl bg-primary/5 flex items-center justify-center overflow-hidden border border-border flex-shrink-0">
+                                {app.logo ? (
+                                  <Image 
+                                    src={app.logo} 
+                                    alt={app.name} 
+                                    width={80} 
+                                    height={80}
+                                    className="object-cover"
+                                  />
+                                ) : (
+                                  <Smartphone className="h-10 w-10 text-primary" />
+                                )}
                               </div>
+
                               <div className="flex-1">
-                                <h4 className="text-lg font-semibold text-foreground mb-1">
-                                  {app.name}
-                                </h4>
-                                <p className="text-sm text-muted-foreground mb-3">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                                  <h4 className="text-lg font-bold text-foreground">
+                                    {app.name}
+                                  </h4>
+                                  
+                                  {/* Company Branding */}
+                                  <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-secondary/50 border border-border w-fit">
+                                    {app.companyLogo && (
+                                      <div className="w-4 h-4 relative flex-shrink-0">
+                                        <Image 
+                                          src={app.companyLogo} 
+                                          alt={app.company} 
+                                          fill
+                                          className="object-contain"
+                                        />
+                                      </div>
+                                    )}
+                                    <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">
+                                      {app.company}
+                                    </span>
+                                  </div>
+                                </div>
+
+                                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                                   {app.description}
                                 </p>
-                                <p className="text-xs text-muted-foreground mb-4">
-                                  <span className="text-foreground">{app.role}</span> at {app.company}
-                                </p>
-                                <div className="flex flex-wrap items-center gap-3">
+                                
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                                   <div className="flex flex-wrap gap-2">
                                     {app.tags.map((tag) => (
-                                      <Badge key={tag} variant="secondary" className="text-xs">
+                                      <Badge key={tag} variant="outline" className="text-[10px] font-medium py-0 px-2">
                                         {tag}
                                       </Badge>
                                     ))}
                                   </div>
-                                  <div className="flex gap-2 ml-auto">
+                                  
+                                  <div className="flex gap-2 sm:ml-auto">
                                     {app.playStoreUrl && (
-                                      <Button asChild size="sm" variant="outline">
+                                      <Button asChild size="sm" variant="ghost" className="h-8 px-3 text-xs gap-1.5 hover:bg-primary/10 hover:text-primary">
                                         <Link href={app.playStoreUrl} target="_blank">
                                           Play Store
-                                          <ExternalLink className="h-3 w-3 ml-1" />
+                                          <ExternalLink className="h-3 w-3" />
                                         </Link>
                                       </Button>
                                     )}
                                     {app.appStoreUrl && (
-                                      <Button asChild size="sm" variant="outline">
+                                      <Button asChild size="sm" variant="ghost" className="h-8 px-3 text-xs gap-1.5 hover:bg-primary/10 hover:text-primary">
                                         <Link href={app.appStoreUrl} target="_blank">
                                           App Store
-                                          <ExternalLink className="h-3 w-3 ml-1" />
+                                          <ExternalLink className="h-3 w-3" />
                                         </Link>
                                       </Button>
                                     )}

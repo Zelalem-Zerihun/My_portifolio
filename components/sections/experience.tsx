@@ -1,13 +1,15 @@
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const experiences = [
   {
     period: "Current",
     role: "Flutter Mobile Developer",
-    company: "Origin Tech",
+    company: "Origin Technologies",
     companyUrl: "https://origintech.com",
+    logo: "/icons/Origin_Technologies.PNG",
     description: "Developing and maintaining mobile applications using Flutter framework with focus on clean architecture and modern state management solutions.",
     tags: ["Flutter", "Riverpod", "Clean Architecture"],
   },
@@ -15,6 +17,7 @@ const experiences = [
     period: "2023 - 2024",
     role: "Flutter Mobile Developer",
     company: "INMS - Ethiopian Press Agency",
+    logo: "/icons/Addis_Ababa_University.png",
     description: "Developed mobile application using Flutter with Riverpod for state management. Integrated with ASP.NET backend and performed security testing using MobSF and Burp Suite. Collaborated with Addis Ababa University team on the project.",
     tags: ["Flutter", "Riverpod", "ASP.NET", "Security Testing"],
   },
@@ -39,7 +42,7 @@ export function ExperienceSection() {
     <section id="experience" className="py-24 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+          <div className="flex flex-col lg:row gap-12 lg:gap-24">
             {/* Section label */}
             <div className="lg:w-1/4">
               <h2 className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-2">
@@ -57,10 +60,21 @@ export function ExperienceSection() {
                     className="group relative"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                      <div className="sm:w-32 flex-shrink-0">
-                        <span className="text-sm text-muted-foreground">
+                      <div className="sm:w-32 flex-shrink-0 flex sm:flex-col gap-2">
+                        <span className="text-sm text-muted-foreground order-2 sm:order-1">
                           {exp.period}
                         </span>
+                        {exp.logo && (
+                          <div className="w-12 h-12 rounded-lg bg-background border border-border p-2 flex items-center justify-center order-1 sm:order-2">
+                            <Image 
+                              src={exp.logo} 
+                              alt={exp.company} 
+                              width={40} 
+                              height={40}
+                              className="object-contain"
+                            />
+                          </div>
+                        )}
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
