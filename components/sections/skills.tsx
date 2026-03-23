@@ -26,8 +26,19 @@ const skillCategories = [
       { name: "Google Play Store", level: "Advanced" },
       { name: "iOS App Store", level: "Advanced" },
       { name: "Git/GitHub", level: "Advanced" },
-      { name: "MobSF", level: "Intermediate" },
-      { name: "Burp Suite", level: "Intermediate" },
+      { name: "GraphQL", level: "Advanced" },
+      { name: "Next.js", level: "Advanced" },
+    ],
+  },
+  {
+    title: "Soft Skills & Languages",
+    skills: [
+      { name: "Effective Communication", level: "None" },
+      { name: "Critical Thinking", level: "None" },
+      { name: "Meeting Deadlines", level: "None" },
+      { name: "Quick Learner", level: "None" },
+      { name: "English (Fluent)", level: "None" },
+      { name: "Amharic (Native)", level: "None" },
     ],
   },
 ]
@@ -62,7 +73,7 @@ export function SkillsSection() {
                           className="px-4 py-2 text-sm"
                         >
                           {skill.name}
-                          {skill.level === "Expert" && (
+                          {skill.level === "Expert" && category.title !== "Soft Skills & Languages" && (
                             <span className="ml-2 text-xs opacity-70">Expert</span>
                           )}
                         </Badge>

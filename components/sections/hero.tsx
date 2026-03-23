@@ -23,12 +23,15 @@ export function HeroSection() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
             {/* Left side - Text content */}
             <div className="flex-1">
-              <p className="text-primary font-medium mb-4 tracking-wide">
-                Hello, I'm a
+              <p className="text-primary font-medium mb-2 tracking-wide">
+                Hello, I'm
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight text-balance">
-                Flutter Mobile Developer
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground mb-4 leading-tight">
+                Zelalem Zerihun
               </h1>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-muted-foreground mb-6">
+                Flutter Mobile Developer
+              </h2>
               <p className="text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
                 Building scalable and beautiful mobile applications with clean architecture and modern state management.
               </p>
@@ -41,7 +44,7 @@ export function HeroSection() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="gap-2">
-                  <Link href="/cv.pdf" target="_blank" download>
+                  <Link href="/CV/Zelalem_Zerihun_CV.pdf" target="_blank">
                     <Download className="h-4 w-4" />
                     Download CV
                   </Link>
@@ -51,7 +54,7 @@ export function HeroSection() {
               {/* Social links */}
               <div className="flex items-center gap-4">
                 <Link
-                  href="https://github.com"
+                  href="https://github.com/Zelalem-Zerihun"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors"
@@ -60,16 +63,7 @@ export function HeroSection() {
                   <span className="sr-only">GitHub</span>
                 </Link>
                 <Link
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Linkedin className="h-5 w-5" />
-                  <span className="sr-only">LinkedIn</span>
-                </Link>
-                <Link
-                  href="mailto:contact@example.com"
+                  href="mailto:zelalem.zerihun.b@gmail.com"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="h-5 w-5" />

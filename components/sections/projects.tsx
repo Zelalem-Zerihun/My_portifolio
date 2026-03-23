@@ -17,8 +17,7 @@ const publishedApps = [
     company: "Addis Ababa University",
     logo: "/icons/Gazetta_plus.png",
     companyLogo: "/icons/Addis_Ababa_University.png",
-    playStoreUrl: "https://play.google.com",
-    appStoreUrl: "https://apps.apple.com",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=et.press.gazette_plus",
     tags: ["Flutter", "Riverpod", "News"],
   },
   {
@@ -27,19 +26,20 @@ const publishedApps = [
     role: "Flutter Developer",
     company: "Origin Technologies",
     logo: "/icons/Casa.png",
-    companyLogo: "/icons/Origin_Technologies.PNG",
-    playStoreUrl: "https://play.google.com",
+    companyLogo: "/icons/Origin_Technologies.png",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.origin.casa_mobile",
     tags: ["Flutter", "Clean Architecture"],
   },
 ]
 
 const personalProjects = [
   {
-    name: "Personal Productivity App",
-    description: "A comprehensive productivity application currently in development, featuring task management, habit tracking, and goal setting.",
+    name: "The Reviewers",
+    description: "Reviewers App is a movie platform that provides personalized and AI-powered movie recommendations, popular movie listings with release date notifications, a watchlist feature, movie news, and a dedicated section for Amharic films.",
     role: "Solo Developer",
-    apkUrl: "/downloads/app.apk",
-    tags: ["Flutter", "Riverpod", "SQLite"],
+    logo: "/icons/the_reviewers.png",
+    apkUrl: "/apk/app-release.apk",
+    tags: ["Flutter", "Firebase", "Riverpod", "YouTube API", "REST API"],
   },
 ]
 
@@ -182,9 +182,20 @@ export function ProjectsSection() {
                       {personalProjects.map((project) => (
                         <Card key={project.name} className="bg-card border-border hover:border-primary/50 transition-colors">
                           <CardContent className="p-6">
-                            <div className="flex flex-col sm:flex-row gap-4">
-                              <div className="w-16 h-16 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                                <Smartphone className="h-8 w-8 text-accent" />
+                            <div className="flex flex-col sm:flex-row gap-6">
+                              {/* App Icon */}
+                              <div className="w-20 h-20 rounded-2xl bg-accent/5 flex items-center justify-center overflow-hidden border border-border flex-shrink-0">
+                                {project.logo ? (
+                                  <Image 
+                                    src={project.logo} 
+                                    alt={project.name} 
+                                    width={80} 
+                                    height={80}
+                                    className="object-cover"
+                                  />
+                                ) : (
+                                  <Smartphone className="h-10 w-10 text-accent" />
+                                )}
                               </div>
                               <div className="flex-1">
                                 <h4 className="text-lg font-semibold text-foreground mb-1">

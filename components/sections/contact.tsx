@@ -6,13 +6,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
-import { Mail, Github, Linkedin, Send, Copy, Check } from "lucide-react"
+import { Mail, Github, Phone, Send, Copy, Check, Send as Telegram } from "lucide-react"
 import Link from "next/link"
 
 const contactInfo = {
-  email: "contact@example.com",
-  github: "https://github.com",
-  linkedin: "https://linkedin.com/in/developer",
+  email: "zelalem.zerihun.b@gmail.com",
+  phone: "09-25-22-93-35",
+  telegram: "@zelalem_zerihun",
+  github: "https://github.com/Zelalem-Zerihun",
 }
 
 export function ContactSection() {
@@ -86,6 +87,43 @@ export function ContactSection() {
                     </CardContent>
                   </Card>
 
+                  {/* Telegram */}
+                  <Card className="bg-card border-border hover:border-primary/50 transition-colors">
+                    <CardContent className="p-4">
+                      <Link
+                        href={`https://t.me/${contactInfo.telegram.replace('@', '')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3"
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                          <Telegram className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-muted-foreground">Telegram</p>
+                          <p className="text-sm text-foreground hover:text-primary transition-colors">
+                            {contactInfo.telegram}
+                          </p>
+                        </div>
+                      </Link>
+                    </CardContent>
+                  </Card>
+
+                  {/* Phone */}
+                  <Card className="bg-card border-border hover:border-primary/50 transition-colors">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                          <Phone className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-muted-foreground">Phone</p>
+                          <p className="text-sm text-foreground">{contactInfo.phone}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
                   {/* GitHub */}
                   <Card className="bg-card border-border hover:border-primary/50 transition-colors">
                     <CardContent className="p-4">
@@ -101,29 +139,7 @@ export function ContactSection() {
                         <div>
                           <p className="text-xs text-muted-foreground">GitHub</p>
                           <p className="text-sm text-foreground hover:text-primary transition-colors">
-                            @developer
-                          </p>
-                        </div>
-                      </Link>
-                    </CardContent>
-                  </Card>
-
-                  {/* LinkedIn */}
-                  <Card className="bg-card border-border hover:border-primary/50 transition-colors">
-                    <CardContent className="p-4">
-                      <Link
-                        href={contactInfo.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3"
-                      >
-                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                          <Linkedin className="h-5 w-5 text-primary" />
-                        </div>
-                        <div>
-                          <p className="text-xs text-muted-foreground">LinkedIn</p>
-                          <p className="text-sm text-foreground hover:text-primary transition-colors">
-                            /in/developer
+                            @Zelalem-Zerihun
                           </p>
                         </div>
                       </Link>

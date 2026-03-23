@@ -45,9 +45,9 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link
             href="#"
-            className="text-lg font-semibold tracking-tight text-foreground hover:text-primary transition-colors"
+            className="text-xl font-bold tracking-tight text-foreground hover:text-primary transition-colors"
           >
-            Portfolio
+            Zelalem Zerihun
           </Link>
 
           {/* Desktop Navigation */}

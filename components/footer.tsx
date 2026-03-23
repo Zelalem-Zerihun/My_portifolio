@@ -11,7 +11,7 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-6">
               <Link
-                href="https://github.com"
+                href="https://github.com/Zelalem-Zerihun"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -20,16 +20,7 @@ export function Footer() {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link
-                href="mailto:contact@example.com"
+                href="mailto:zelalem.zerihun.b@gmail.com"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Mail className="h-5 w-5" />
@@ -38,7 +29,7 @@ export function Footer() {
             </div>
 
             <p className="text-sm text-muted-foreground">
-              {currentYear} Flutter Developer. All rights reserved.
+              {currentYear} Zelalem Zerihun. All rights reserved.
             </p>
           </div>
         </div>

@@ -93,8 +93,7 @@ function ExperienceItem({ exp }: { exp: typeof experiences[0] }) {
                   {exp.company}
                 </span>
               )}
-            </div>
-          </div>
+              </div>          </div>
         </div>
 
         <div className="pl-0 sm:pl-[120px]">
