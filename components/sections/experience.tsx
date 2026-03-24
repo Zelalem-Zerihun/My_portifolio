@@ -13,7 +13,11 @@ const experiences = [
     company: "Origin Technologies",
     companyUrl: "https://origintech.com",
     logo: "/icons/Origin_Technologies.png",
-    description: "CASA is an online real estate marketplace that connects property developers, agencies, and buyers to list, explore, and manage property listings while serving as a digital channel for verified users to promote properties and enabling buyers to directly contact sellers; as the platform does not act as a broker and does not own or manage listed properties to ensure a transparent, user-driven experience, I contributed to the development of the mobile application using Flutter, implementing state management with Riverpod, integrating RESTful APIs for efficient data handling, configuring and building the iOS version, managing deployment to the Google Play Store, and implementing Firebase Authentication for secure user access alongside testing to ensure stability and performance.",
+    description: [
+      "CASA is an online real estate marketplace that connects property developers, agencies, and buyers to list, explore, and manage property listings while serving as a digital channel for verified users to promote properties and enabling buyers to directly contact sellers.",
+      "As the platform does not act as a broker and does not own or manage listed properties to ensure a transparent, user-driven experience, I contributed to the development of the mobile application using Flutter, implementing state management with Riverpod, and integrating RESTful APIs for efficient data handling.",
+      "I was also responsible for configuring and building the iOS version, managing deployment to the Google Play Store, and implementing Firebase Authentication for secure user access alongside testing to ensure stability and performance."
+    ],
     tags: ["Flutter", "Riverpod", "Firebase", "iOS Deployment", "Play Store"],
   },
   {
@@ -22,7 +26,11 @@ const experiences = [
     company: "Addis Ababa University (for Ethiopian Press Agency)",
     companyUrl: "https://www.aau.edu.et/",
     logo: "/icons/Addis_Ababa_University.png",
-    description: "Gazette Plus is an all-in-one news and information platform delivering newspapers, magazines, job listings, bid announcements, and historical multimedia content in a seamless mobile experience; built as part of the Integrated News Management System (INMS) for the Ethiopian Press Agency, the app focuses on accessibility, performance, and scalability, where I contributed to the development of cross-platform features using Flutter and Dart for Android and iOS, implemented secure authentication through Orchard Identity Server, enabled efficient data handling using GraphQL and RESTful APIs, and integrated the YouTube Data API for media streaming and podcast playback, while collaborating closely with UI/UX designers to deliver an intuitive interface and conducting debugging, testing, and optimization to ensure stability, responsiveness, and user-centered scalability within a collaborative environment.",
+    description: [
+      "Gazette Plus is an all-in-one news and information platform delivering newspapers, magazines, job listings, bid announcements, and historical multimedia content in a seamless mobile experience.",
+      "Built as part of the Integrated News Management System (INMS) for the Ethiopian Press Agency, the app focuses on accessibility, performance, and scalability. I contributed to the development of cross-platform features using Flutter and Dart for Android and iOS.",
+      "I implemented secure authentication through Orchard Identity Server, enabled efficient data handling using GraphQL and RESTful APIs, and integrated the YouTube Data API for media streaming and podcast playback, while collaborating closely with UI/UX designers to deliver an intuitive interface."
+    ],
     tags: ["Flutter", "GraphQL", "REST API", "Orchard ID", "YouTube API"],
   },
   {
@@ -47,10 +55,11 @@ const experiences = [
 
 function ExperienceItem({ exp }: { exp: typeof experiences[0] }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const isLongDescription = exp.description.length > 250;
-  const displayDescription = isLongDescription && !isExpanded 
-    ? `${exp.description.substring(0, 250)}...` 
+  const fullDescription = Array.isArray(exp.description) 
+    ? exp.description.join(" ") 
     : exp.description;
+    
+  const isLongDescription = fullDescription.length > 250;
 
   return (
     <div className="group relative">
@@ -100,9 +109,22 @@ function ExperienceItem({ exp }: { exp: typeof experiences[0] }) {
 
         <div className="pl-0 sm:pl-[120px]">
           <div className="space-y-4">
-            <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
-              {displayDescription}
-            </p>
+            {Array.isArray(exp.description) ? (
+              <div className="space-y-4">
+                {(isExpanded ? exp.description : [exp.description[0]]).map((p, i) => (
+                  <p key={i} className="text-muted-foreground leading-relaxed text-base sm:text-lg">
+                    {p}{!isExpanded && exp.description.length > 1 ? "..." : ""}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
+                {isLongDescription && !isExpanded 
+                  ? `${exp.description.substring(0, 250)}...` 
+                  : exp.description}
+              </p>
+            )}
+            
             {isLongDescription && (
               <button
                 onClick={() => setIsExpanded(!isExpanded)}

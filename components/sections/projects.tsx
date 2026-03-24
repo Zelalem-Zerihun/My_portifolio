@@ -19,6 +19,7 @@ const publishedApps = [
     companyLogo: "/icons/Addis_Ababa_University.png",
     playStoreUrl: "https://play.google.com/store/apps/details?id=et.press.gazette_plus",
     tags: ["Flutter", "Riverpod", "News"],
+    whiteBg: true,
   },
   {
     name: "Casa",
@@ -40,16 +41,19 @@ const personalProjects = [
     logo: "/icons/the_reviewers.png",
     apkUrl: "/apk/app-release.apk",
     tags: ["Flutter", "Firebase", "Riverpod", "YouTube API", "REST API"],
+    bgColor: "#1D80E4",
   },
 ]
 
 const webProjects = [
   {
-    name: "Association Website",
-    description: "Full-featured association website with member management, events, and news sections.",
-    techStack: ["Next.js", "Firebase", "Tailwind CSS"],
-    hosting: "Netlify",
-    liveUrl: "https://example.com",
+    name: "EPSIRA Digital Hub",
+    description: "The EPSIRA digital hub is a comprehensive platform designed to professionalize and scale political science in Ethiopia by integrating a digital publication engine for scholarly journals, a multi-tier membership management system, an event and workshop portal for national conferences, a searchable community directory for research collaboration, and a governance section for institutional transparency and ethics.",
+    techStack: ["Next.js", "Firebase", "Tailwind CSS", "TypeScript"],
+    hosting: "Vercel",
+    liveUrl: "https://epsira.vercel.app/",
+    logo: "/icons/epsira_website.png",
+    whiteBg: true,
   },
 ]
 
@@ -95,14 +99,17 @@ export function ProjectsSection() {
                           <CardContent className="p-6">
                             <div className="flex flex-col sm:flex-row gap-6">
                               {/* App Icon */}
-                              <div className="w-20 h-20 rounded-2xl bg-primary/5 flex items-center justify-center overflow-hidden border border-border flex-shrink-0">
+                              <div 
+                                className={`w-20 h-20 rounded-2xl flex items-center justify-center overflow-hidden border border-border flex-shrink-0 ${app.whiteBg ? 'bg-white' : 'bg-primary/5'}`}
+                                style={app.bgColor ? { backgroundColor: app.bgColor } : {}}
+                              >
                                 {app.logo ? (
                                   <Image 
                                     src={app.logo} 
                                     alt={app.name} 
                                     width={80} 
                                     height={80}
-                                    className="object-cover"
+                                    className={app.whiteBg || app.bgColor ? "object-contain p-2" : "object-cover"}
                                   />
                                 ) : (
                                   <Smartphone className="h-10 w-10 text-primary" />
@@ -184,14 +191,17 @@ export function ProjectsSection() {
                           <CardContent className="p-6">
                             <div className="flex flex-col sm:flex-row gap-6">
                               {/* App Icon */}
-                              <div className="w-20 h-20 rounded-2xl bg-accent/5 flex items-center justify-center overflow-hidden border border-border flex-shrink-0">
+                              <div 
+                                className={`w-20 h-20 rounded-2xl flex items-center justify-center overflow-hidden border border-border flex-shrink-0 ${project.whiteBg ? 'bg-white' : 'bg-accent/5'}`}
+                                style={project.bgColor ? { backgroundColor: project.bgColor } : {}}
+                              >
                                 {project.logo ? (
                                   <Image 
                                     src={project.logo} 
                                     alt={project.name} 
                                     width={80} 
                                     height={80}
-                                    className="object-cover"
+                                    className={project.whiteBg || project.bgColor ? "object-contain p-2" : "object-cover"}
                                   />
                                 ) : (
                                   <Smartphone className="h-10 w-10 text-accent" />
@@ -234,10 +244,21 @@ export function ProjectsSection() {
                 <TabsContent value="web" className="space-y-6">
                   {webProjects.map((project) => (
                     <Card key={project.name} className="bg-card border-border hover:border-primary/50 transition-colors overflow-hidden">
-                      <div className="aspect-video bg-muted relative">
-                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                          <Globe className="h-12 w-12" />
-                        </div>
+                      <div className={`aspect-video relative flex items-center justify-center ${project.whiteBg ? 'bg-white' : 'bg-muted'}`}>
+                        {project.logo ? (
+                          <div className="relative w-full h-full p-8">
+                            <Image 
+                              src={project.logo} 
+                              alt={project.name} 
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                            <Globe className="h-12 w-12" />
+                          </div>
+                        )}
                       </div>
                       <CardContent className="p-6">
                         <h4 className="text-lg font-semibold text-foreground mb-2">
