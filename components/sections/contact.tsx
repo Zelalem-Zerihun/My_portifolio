@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Mail, Github, Phone, Send, Copy, Check, Send as Telegram } from "lucide-react"
 import Link from "next/link"
+import { useToast } from "@/hooks/use-toast"
 
 const contactInfo = {
   email: "zelalem.zerihun.b@gmail.com",
@@ -17,6 +18,7 @@ const contactInfo = {
 }
 
 export function ContactSection() {
+  const { toast } = useToast()
   const [copied, setCopied] = useState(false)
   const [formState, setFormState] = useState({
     name: "",
@@ -32,8 +34,24 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    window.location.href = `mailto:${contactInfo.email}?subject=Portfolio Contact from ${formState.name}&body=${formState.message}`
+    const subject = encodeURIComponent(`Portfolio Message from ${formState.name}`)
+    const body = encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`)
+    
+    // Open email client
+    window.location.href = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`
+    
+    // Show success message
+    toast({
+      title: "Message Initiated!",
+      description: "Opening your email client to send the message.",
+    })
+
+    // Reset form
+    setFormState({
+      name: "",
+      email: "",
+      message: "",
+    })
   }
 
   return (
@@ -179,7 +197,8 @@ export function ContactSection() {
                           <FieldLabel>Message</FieldLabel>
                           <Textarea
                             placeholder="Your message..."
-                            rows={4}
+                            rows={8}
+                            className="resize-none"
                             value={formState.message}
                             onChange={(e) =>
                               setFormState({ ...formState, message: e.target.value })
