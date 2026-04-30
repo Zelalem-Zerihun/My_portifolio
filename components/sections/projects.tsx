@@ -33,17 +33,7 @@ const publishedApps = [
   },
 ]
 
-const personalProjects = [
-  {
-    name: "The Reviewers",
-    description: "Reviewers App is a movie platform that provides personalized and AI-powered movie recommendations, popular movie listings with release date notifications, a watchlist feature, movie news, and a dedicated section for Amharic films.",
-    role: "Solo Developer",
-    logo: "/icons/the_reviewers.png",
-    apkUrl: "/apk/app-release.apk",
-    tags: ["Flutter", "Firebase", "Riverpod", "YouTube API", "REST API"],
-    bgColor: "#1D80E4",
-  },
-]
+const personalProjects = []
 
 const webProjects = [
   {
@@ -181,64 +171,66 @@ export function ProjectsSection() {
                   </div>
 
                   {/* Personal Projects */}
-                  <div>
-                    <h3 className="text-sm font-medium text-muted-foreground mb-6">
-                      Personal Projects (In Development)
-                    </h3>
-                    <div className="space-y-6">
-                      {personalProjects.map((project) => (
-                        <Card key={project.name} className="bg-card border-border hover:border-primary/50 transition-colors">
-                          <CardContent className="p-6">
-                            <div className="flex flex-col sm:flex-row gap-6">
-                              {/* App Icon */}
-                              <div 
-                                className={`w-20 h-20 rounded-2xl flex items-center justify-center overflow-hidden border border-border flex-shrink-0 ${project.whiteBg ? 'bg-white' : 'bg-accent/5'}`}
-                                style={project.bgColor ? { backgroundColor: project.bgColor } : {}}
-                              >
-                                {project.logo ? (
-                                  <Image 
-                                    src={project.logo} 
-                                    alt={project.name} 
-                                    width={80} 
-                                    height={80}
-                                    className={project.whiteBg || project.bgColor ? "object-contain p-2" : "object-cover"}
-                                  />
-                                ) : (
-                                  <Smartphone className="h-10 w-10 text-accent" />
-                                )}
-                              </div>
-                              <div className="flex-1">
-                                <h4 className="text-lg font-semibold text-foreground mb-1">
-                                  {project.name}
-                                </h4>
-                                <p className="text-sm text-muted-foreground mb-3">
-                                  {project.description}
-                                </p>
-                                <p className="text-xs text-muted-foreground mb-4">
-                                  <span className="text-foreground">{project.role}</span>
-                                </p>
-                                <div className="flex flex-wrap items-center gap-3">
-                                  <div className="flex flex-wrap gap-2">
-                                    {project.tags.map((tag) => (
-                                      <Badge key={tag} variant="secondary" className="text-xs">
-                                        {tag}
-                                      </Badge>
-                                    ))}
+                  {personalProjects.length > 0 && (
+                    <div>
+                      <h3 className="text-sm font-medium text-muted-foreground mb-6">
+                        Personal Projects (In Development)
+                      </h3>
+                      <div className="space-y-6">
+                        {personalProjects.map((project) => (
+                          <Card key={project.name} className="bg-card border-border hover:border-primary/50 transition-colors">
+                            <CardContent className="p-6">
+                              <div className="flex flex-col sm:flex-row gap-6">
+                                {/* App Icon */}
+                                <div 
+                                  className={`w-20 h-20 rounded-2xl flex items-center justify-center overflow-hidden border border-border flex-shrink-0 ${project.whiteBg ? 'bg-white' : 'bg-accent/5'}`}
+                                  style={project.bgColor ? { backgroundColor: project.bgColor } : {}}
+                                >
+                                  {project.logo ? (
+                                    <Image 
+                                      src={project.logo} 
+                                      alt={project.name} 
+                                      width={80} 
+                                      height={80}
+                                      className={project.whiteBg || project.bgColor ? "object-contain p-2" : "object-cover"}
+                                    />
+                                  ) : (
+                                    <Smartphone className="h-10 w-10 text-accent" />
+                                  )}
+                                </div>
+                                <div className="flex-1">
+                                  <h4 className="text-lg font-semibold text-foreground mb-1">
+                                    {project.name}
+                                  </h4>
+                                  <p className="text-sm text-muted-foreground mb-3">
+                                    {project.description}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground mb-4">
+                                    <span className="text-foreground">{project.role}</span>
+                                  </p>
+                                  <div className="flex flex-wrap items-center gap-3">
+                                    <div className="flex flex-wrap gap-2">
+                                      {project.tags.map((tag) => (
+                                        <Badge key={tag} variant="secondary" className="text-xs">
+                                          {tag}
+                                        </Badge>
+                                      ))}
+                                    </div>
+                                    <Button asChild size="sm" variant="outline" className="ml-auto">
+                                      <Link href={project.apkUrl} download>
+                                        <Download className="h-3 w-3 mr-1" />
+                                        Download APK
+                                      </Link>
+                                    </Button>
                                   </div>
-                                  <Button asChild size="sm" variant="outline" className="ml-auto">
-                                    <Link href={project.apkUrl} download>
-                                      <Download className="h-3 w-3 mr-1" />
-                                      Download APK
-                                    </Link>
-                                  </Button>
                                 </div>
                               </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      ))}
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </TabsContent>
 
                 <TabsContent value="web" className="space-y-6">
