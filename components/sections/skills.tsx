@@ -1,84 +1,90 @@
-import { Badge } from "@/components/ui/badge"
+"use client"
 
-const skillCategories = [
+import { Progress } from "@/components/ui/progress"
+import { Shield, Code, Cpu, Gauge, Layers, Smartphone, Database, Globe } from "lucide-react"
+
+const technicalSkills = [
+  { name: "Flutter / Dart", level: 98 },
+  { name: "Riverpod / BLoC", level: 95 },
+  { name: "Clean Architecture", level: 92 },
+  { name: "REST / GraphQL", level: 88 },
+  { name: "Firebase / ASP.NET", level: 82 },
+]
+
+const architecturalPrinciples = [
   {
-    title: "Mobile Development",
-    skills: [
-      { name: "Flutter", level: "Expert" },
-      { name: "Riverpod", level: "Advanced" },
-      { name: "BLoC Pattern", level: "Advanced" },
-      { name: "Clean Architecture", level: "Advanced" },
-      { name: "Dart", level: "Expert" },
-    ],
+    title: "Mobile First",
+    icon: Smartphone,
+    description: "Responsive & adaptive mobile ecosystems",
   },
   {
-    title: "Backend & APIs",
-    skills: [
-      { name: "REST API Integration", level: "Advanced" },
-      { name: "Firebase", level: "Advanced" },
-      { name: "ASP.NET", level: "Intermediate" },
-      { name: "Secure Coding", level: "Advanced" },
-    ],
+    title: "Clean Design",
+    icon: Layers,
+    description: "Modular & scalable code structures",
   },
   {
-    title: "Deployment & Tools",
-    skills: [
-      { name: "Google Play Store", level: "Advanced" },
-      { name: "iOS App Store", level: "Advanced" },
-      { name: "Git/GitHub", level: "Advanced" },
-      { name: "GraphQL", level: "Advanced" },
-      { name: "Next.js", level: "Advanced" },
-    ],
+    title: "State Management",
+    icon: Gauge,
+    description: "Predictable & efficient data flow",
   },
   {
-    title: "Soft Skills & Languages",
-    skills: [
-      { name: "Effective Communication", level: "None" },
-      { name: "Critical Thinking", level: "None" },
-      { name: "Meeting Deadlines", level: "None" },
-      { name: "Quick Learner", level: "None" },
-      { name: "English (Fluent)", level: "None" },
-      { name: "Amharic (Native)", level: "None" },
-    ],
+    title: "API Integration",
+    icon: Globe,
+    description: "Robust & secure backend communication",
   },
 ]
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-24 lg:py-32 bg-secondary/30">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-            {/* Section label */}
-            <div className="lg:w-1/4">
-              <h2 className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-2">
-                Skills
+    <section id="skills" className="py-24 lg:py-32 bg-black overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+            {/* Left side - Technical Skills (Core Engine) */}
+            <div className="flex-1">
+              <h2 className="text-4xl lg:text-5xl font-black mb-12 tracking-tight text-white">
+                Core Engine
               </h2>
-              <div className="w-12 h-px bg-primary" />
+              <div className="space-y-8">
+                {technicalSkills.map((skill) => (
+                  <div key={skill.name} className="space-y-3">
+                    <div className="flex justify-between items-end">
+                      <span className="text-sm font-bold uppercase tracking-widest text-white/80">
+                        {skill.name}
+                      </span>
+                      <span className="text-sm font-black text-primary italic">
+                        {skill.level}%
+                      </span>
+                    </div>
+                    <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-primary transition-all duration-1000 ease-out" 
+                        style={{ width: `${skill.level}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Content */}
-            <div className="lg:w-3/4">
-              <div className="space-y-12">
-                {skillCategories.map((category) => (
-                  <div key={category.title}>
-                    <h3 className="text-lg font-semibold text-foreground mb-6">
-                      {category.title}
-                    </h3>
-                    <div className="flex flex-wrap gap-3">
-                      {category.skills.map((skill) => (
-                        <Badge
-                          key={skill.name}
-                          variant={skill.level === "Expert" ? "default" : "secondary"}
-                          className="px-4 py-2 text-sm"
-                        >
-                          {skill.name}
-                          {skill.level === "Expert" && category.title !== "Soft Skills & Languages" && (
-                            <span className="ml-2 text-xs opacity-70">Expert</span>
-                          )}
-                        </Badge>
-                      ))}
+            {/* Right side - Architectural Principles Grid */}
+            <div className="flex-1 relative">
+              <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full" />
+              <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {architecturalPrinciples.map((principle) => (
+                  <div 
+                    key={principle.title}
+                    className="group p-8 rounded-3xl bg-white/5 border border-white/5 hover:border-primary/20 hover:bg-white/10 transition-all duration-500"
+                  >
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                      <principle.icon className="h-6 w-6 text-primary" />
                     </div>
+                    <h3 className="text-lg font-bold mb-2 text-white">
+                      {principle.title}
+                    </h3>
+                    <p className="text-sm text-white/40 leading-relaxed">
+                      {principle.description}
+                    </p>
                   </div>
                 ))}
               </div>

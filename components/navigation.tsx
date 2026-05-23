@@ -2,29 +2,23 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Moon, Sun } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navItems = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#education", label: "Education" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#certifications", label: "Certs" },
+  { href: "/#contact", label: "Contact" },
 ]
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
@@ -35,84 +29,69 @@ export function Navigation() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "bg-background/80 backdrop-blur-lg border-b border-border"
-          : "bg-transparent"
+          ? "bg-black/80 backdrop-blur-xl border-b border-white/5 py-4"
+          : "bg-transparent py-6"
       )}
     >
-      <nav className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <nav className="container mx-auto px-6 lg:px-12">
+        <div className="flex items-center justify-between max-w-6xl mx-auto">
           <Link
-            href="#"
-            className="text-xl font-bold tracking-tight text-foreground hover:text-primary transition-colors"
+            href="/"
+            className="text-xl font-black tracking-tighter text-white hover:text-primary transition-colors"
           >
             Zelalem Zerihun
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {item.label}
+          <div className="hidden lg:flex items-center gap-12">
+            <div className="flex items-center gap-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 hover:text-primary transition-all duration-300 relative group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                </Link>
+              ))}
+            </div>
+            <Button asChild className="rounded-full bg-primary text-primary-foreground font-black text-[10px] uppercase tracking-[0.2em] px-6 hover:scale-105 transition-transform">
+              <Link href="/CV/Zelalem_Zerihun_CV.pdf" target="_blank">
+                Resume
               </Link>
-            ))}
-            {mounted && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="ml-2"
-              >
-                {theme === "dark" ? (
-                  <Sun className="h-5 w-5" />
-                ) : (
-                  <Moon className="h-5 w-5" />
-                )}
-                <span className="sr-only">Toggle theme</span>
-              </Button>
-            )}
+            </Button>
           </div>
 
-          {/* Mobile Navigation */}
-          <div className="flex lg:hidden items-center gap-2">
-            {mounted && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              >
-                {theme === "dark" ? (
-                  <Sun className="h-5 w-5" />
-                ) : (
-                  <Moon className="h-5 w-5" />
-                )}
-                <span className="sr-only">Toggle theme</span>
-              </Button>
-            )}
+          {/* Mobile Navigation Toggle */}
+          <div className="lg:hidden flex items-center">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Open menu</span>
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/5">
+                  <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px]">
-                <div className="flex flex-col gap-6 mt-8">
+              <SheetContent side="right" className="w-full bg-black border-white/5 p-12 flex flex-col justify-center">
+                <div className="flex flex-col gap-8 text-center">
                   {navItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-4xl font-black tracking-tighter text-white hover:text-primary transition-colors"
                     >
                       {item.label}
                     </Link>
                   ))}
+                  <div className="pt-8">
+                    <Button asChild size="lg" className="w-full rounded-full bg-primary text-primary-foreground font-black text-xs uppercase tracking-widest h-14">
+                      <Link href="/CV/Zelalem_Zerihun_CV.pdf" target="_blank">
+                        Download Resume
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

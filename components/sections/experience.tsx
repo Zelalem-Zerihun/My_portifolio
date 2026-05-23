@@ -1,181 +1,113 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react"
+import { ExternalLink, Calendar, MapPin } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
 
 const experiences = [
   {
-    period: "Current",
+    period: "2024 — PRESENT",
     role: "Flutter Mobile Developer",
     company: "Origin Technologies",
-    companyUrl: "https://origintech.com",
-    logo: "/icons/Origin_Technologies.png",
-    description: [
-      "CASA is an online real estate marketplace that connects property developers, agencies, and buyers to list, explore, and manage property listings while serving as a digital channel for verified users to promote properties and enabling buyers to directly contact sellers.",
-      "As the platform does not act as a broker and does not own or manage listed properties to ensure a transparent, user-driven experience, I contributed to the development of the mobile application using Flutter, implementing state management with Riverpod, and integrating RESTful APIs for efficient data handling.",
-      "I was also responsible for configuring and building the iOS version, managing deployment to the Google Play Store, and implementing Firebase Authentication for secure user access alongside testing to ensure stability and performance."
-    ],
-    tags: ["Flutter", "Riverpod", "Firebase", "iOS Deployment", "Play Store"],
+    location: "Addis Ababa, ET",
+    description: "Leading the development of CASA, an online real estate marketplace. Implementing state management with Riverpod, integrating RESTful APIs, and managing end-to-end deployment for iOS and Android.",
+    tags: ["Flutter", "Riverpod", "Firebase", "iOS Deployment"],
+    current: true,
   },
   {
-    period: "2023 - 2024",
+    period: "2023 — 2024",
     role: "Flutter Mobile Developer",
-    company: "Addis Ababa University (for Ethiopian Press Agency)",
-    companyUrl: "https://www.aau.edu.et/",
-    logo: "/icons/Addis_Ababa_University.png",
-    description: [
-      "Gazette Plus is an all-in-one news and information platform delivering newspapers, magazines, job listings, bid announcements, and historical multimedia content in a seamless mobile experience.",
-      "Built as part of the Integrated News Management System (INMS) for the Ethiopian Press Agency, the app focuses on accessibility, performance, and scalability. I contributed to the development of cross-platform features using Flutter and Dart for Android and iOS.",
-      "I implemented secure authentication through Orchard Identity Server, enabled efficient data handling using GraphQL and RESTful APIs, and integrated the YouTube Data API for media streaming and podcast playback, while collaborating closely with UI/UX designers to deliver an intuitive interface."
-    ],
-    tags: ["Flutter", "GraphQL", "REST API", "Orchard ID", "YouTube API"],
+    company: "Addis Ababa University",
+    location: "Ethiopian Press Agency Project",
+    description: "Contributed to Gazette Plus, an integrated news management system. Implemented secure authentication with Orchard ID, GraphQL integrations, and YouTube API for media streaming.",
+    tags: ["Flutter", "GraphQL", "REST API", "Orchard ID"],
   },
   {
-    period: "2022 - 2023",
+    period: "2022 — 2023",
     role: "Graduating Assistant",
     company: "St. Mary's University",
-    companyUrl: "https://smuc.edu.et/",
-    logo: "/icons/St._Mary's_University.png",
-    description: "Taught 'Internet Programming' course to second-year students, covering both fundamental and advanced web technologies including HTML, CSS, JavaScript, and modern frameworks.",
+    location: "Addis Ababa, ET",
+    description: "Taught 'Internet Programming' course, covering HTML, CSS, JavaScript, and modern frameworks for second-year students.",
     tags: ["Teaching", "Web Development", "Mentorship"],
   },
   {
-    period: "Summer 2024",
+    period: "SUMMER 2024",
     role: "Trainer",
-    company: "iCog - Anyone Can Code Summer Camp",
-    companyUrl: "https://icogacc.com/",
-    logo: "/icons/iCog_acc.png",
-    description: "Taught HTML, CSS, JavaScript, and Python to students. Guided them through hands-on projects and helped build foundational programming skills.",
+    company: "iCog - Anyone Can Code",
+    location: "Summer Camp",
+    description: "Taught HTML, CSS, JavaScript, and Python to students. Guided hands-on projects and built foundational programming skills.",
     tags: ["HTML", "CSS", "JavaScript", "Python"],
   },
 ]
 
-function ExperienceItem({ exp }: { exp: typeof experiences[0] }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const fullDescription = Array.isArray(exp.description) 
-    ? exp.description.join(" ") 
-    : exp.description;
-    
-  const isLongDescription = fullDescription.length > 250;
-
-  return (
-    <div className="group relative">
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-          {exp.logo && (
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white p-3 flex items-center justify-center border border-border shadow-md group-hover:border-primary/50 transition-all duration-300 group-hover:shadow-lg">
-              <Image 
-                src={exp.logo} 
-                alt={exp.company} 
-                width={80} 
-                height={80}
-                className="object-contain"
-                priority
-              />
-            </div>
-          )}
-          <div className="flex-1 min-w-[200px]">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-              <span className="text-sm font-semibold text-primary/80 tracking-wide">
-                {exp.period}
-              </span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1">
-              {exp.role}
-            </h3>
-            <div className="flex items-center gap-2">
-              {exp.companyUrl ? (
-                <Link
-                  href={exp.companyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 group/link"
-                >
-                  <span className="text-lg font-medium text-muted-foreground group-hover/link:text-primary transition-colors">
-                    {exp.company}
-                  </span>
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover/link:text-primary transition-colors" />
-                </Link>
-              ) : (
-                <span className="text-lg font-medium text-muted-foreground">
-                  {exp.company}
-                </span>
-              )}
-              </div>          </div>
-        </div>
-
-        <div className="pl-0 sm:pl-[120px]">
-          <div className="space-y-4">
-            {Array.isArray(exp.description) ? (
-              <div className="space-y-4">
-                {(isExpanded ? exp.description : [exp.description[0]]).map((p, i) => (
-                  <p key={i} className="text-muted-foreground leading-relaxed text-base sm:text-lg">
-                    {p}{!isExpanded && exp.description.length > 1 ? "..." : ""}
-                  </p>
-                ))}
-              </div>
-            ) : (
-              <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
-                {isLongDescription && !isExpanded 
-                  ? `${exp.description.substring(0, 250)}...` 
-                  : exp.description}
-              </p>
-            )}
-            
-            {isLongDescription && (
-              <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-              >
-                {isExpanded ? (
-                  <>Show Less <ChevronUp className="h-4 w-4" /></>
-                ) : (
-                  <>Read More <ChevronDown className="h-4 w-4" /></>
-                )}
-              </button>
-            )}
-          </div>
-          <div className="flex flex-wrap gap-2 mt-6">
-            {exp.tags.map((tag) => (
-              <Badge 
-                key={tag} 
-                variant="secondary" 
-                className="text-xs px-3 py-1 bg-secondary/50 hover:bg-secondary transition-colors"
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 lg:py-32">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-            {/* Section label */}
-            <div className="lg:w-1/4">
-              <div className="sticky top-24">
-                <h2 className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-4">
-                  Experience
-                </h2>
-                <div className="w-12 h-px bg-primary" />
-              </div>
+    <section id="experience" className="py-24 lg:py-32 bg-black">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+            {/* Section Heading */}
+            <div className="lg:w-1/3">
+              <h2 className="text-4xl lg:text-6xl font-black mb-8 leading-tight tracking-tighter text-white">
+                The <br /> Professional <br /> <span className="text-primary italic">Journey.</span>
+              </h2>
+              <p className="text-white/40 text-lg leading-relaxed">
+                A chronological track of engineering excellence and architectural leadership in mobile and web technologies.
+              </p>
             </div>
 
-            {/* Content */}
-            <div className="lg:w-3/4">
+            {/* Timeline Content */}
+            <div className="lg:w-2/3 relative">
+              {/* Vertical Line */}
+              <div className="absolute left-0 lg:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-white/10 to-transparent" />
+
               <div className="space-y-16">
                 {experiences.map((exp, index) => (
-                  <ExperienceItem key={index} exp={exp} />
+                  <div key={index} className="relative pl-8 lg:pl-24 group">
+                    {/* Timeline Dot */}
+                    <div className={`absolute left-[-4px] lg:left-[28px] top-2 w-2 h-2 rounded-full ring-4 ring-black transition-all duration-500 group-hover:scale-150 ${exp.current ? 'bg-primary' : 'bg-white/20'}`} />
+                    
+                    <div className="space-y-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <span className="text-xs font-black tracking-[0.2em] text-primary uppercase">
+                          {exp.period}
+                        </span>
+                      </div>
+
+                      <div className="space-y-2">
+                        <h3 className="text-2xl lg:text-3xl font-bold text-white group-hover:text-primary transition-colors">
+                          {exp.role}
+                        </h3>
+                        <div className="flex items-center gap-4 text-sm text-white/40 font-medium">
+                          <span className="flex items-center gap-1">
+                            {exp.company}
+                          </span>
+                          <span className="w-1 h-1 rounded-full bg-white/10" />
+                          <span className="flex items-center gap-1">
+                            {exp.location}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="p-6 rounded-3xl bg-white/5 border border-white/5 group-hover:border-primary/20 transition-all duration-500">
+                        <p className="text-white/60 leading-relaxed mb-6">
+                          {exp.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.tags.map((tag) => (
+                            <Badge 
+                              key={tag} 
+                              variant="secondary" 
+                              className="bg-white/5 text-white/60 hover:text-primary transition-colors px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border-none"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
