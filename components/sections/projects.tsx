@@ -1,8 +1,7 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Smartphone, Globe, ExternalLink, ShieldCheck, Zap, Layers, ArrowRight } from "lucide-react"
+import { Globe, ShieldCheck, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -86,9 +85,10 @@ export function ProjectsSection() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {mobileProjects.map((project) => (
-                <div 
+                <Link 
                   key={project.name}
-                  className="group relative rounded-[3rem] bg-white/5 border border-white/5 overflow-hidden hover:border-primary/20 transition-all duration-700"
+                  href={`/projects/${project.slug}`}
+                  className="group relative rounded-[3rem] bg-white/5 border border-white/5 overflow-hidden hover:border-primary/20 transition-all duration-700 block"
                 >
                   <div className="aspect-[16/10] relative overflow-hidden bg-white/5 flex items-center justify-center p-12">
                     <div className="relative w-full h-full transform group-hover:scale-110 transition-transform duration-1000">
@@ -133,16 +133,17 @@ export function ProjectsSection() {
                           </span>
                         ))}
                       </div>
-                      <div className="flex gap-4">
-                        <Button asChild variant="ghost" size="icon" className="h-10 w-10 rounded-full bg-white/5 border border-white/10 hover:bg-primary hover:text-primary-foreground transition-all">
-                          <Link href={`/projects/${project.slug}`}>
-                            <ArrowRight className="h-4 w-4" />
-                          </Link>
-                        </Button>
+                      <div className="flex flex-col items-center gap-2">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest group-hover:text-primary transition-colors">
+                          Go to details
+                        </span>
+                        <div className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                          <ArrowRight className="h-4 w-4" />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -160,9 +161,10 @@ export function ProjectsSection() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {webProjects.map((project) => (
-                <div 
+                <Link 
                   key={project.name}
-                  className="group p-8 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-primary/20 transition-all duration-500"
+                  href={`/projects/${project.slug}`}
+                  className="group p-8 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-primary/20 transition-all duration-500 block"
                 >
                   <div className="aspect-video relative rounded-2xl overflow-hidden mb-8 border border-white/10 bg-white/5 p-8">
                     <div className="relative w-full h-full transform group-hover:scale-110 transition-transform duration-1000">
@@ -192,15 +194,16 @@ export function ProjectsSection() {
                         </Badge>
                       ))}
                     </div>
-                    <div className="pt-6">
-                      <Button asChild variant="link" className="p-0 h-auto text-primary font-bold text-sm hover:gap-2 transition-all">
-                        <Link href={`/projects/${project.slug}`}>
-                          Case Study <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
+                    <div className="pt-6 flex flex-col items-center lg:items-start gap-2">
+                       <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest group-hover:text-primary transition-colors">
+                          Go to details
+                        </span>
+                      <div className="flex items-center text-primary font-bold text-sm group-hover:gap-2 transition-all">
+                        Case Study <ArrowRight className="ml-2 h-4 w-4" />
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
