@@ -1,14 +1,16 @@
 "use client"
 
-import { Progress } from "@/components/ui/progress"
 import { Shield, Code, Cpu, Gauge, Layers, Smartphone, Database, Globe } from "lucide-react"
 
 const technicalSkills = [
-  { name: "Flutter / Dart", level: 98 },
-  { name: "Riverpod / BLoC", level: 95 },
-  { name: "Clean Architecture", level: 92 },
-  { name: "REST / GraphQL", level: 88 },
-  { name: "Firebase / ASP.NET", level: 82 },
+  "Flutter / Dart",
+  "Riverpod / BLoC",
+  "Clean Architecture",
+  "REST / GraphQL",
+  "Next.js / React",
+  "Nest.js / Node",
+  "Firebase",
+  "PostgreSQL",
 ]
 
 const architecturalPrinciples = [
@@ -45,23 +47,16 @@ export function SkillsSection() {
               <h2 className="text-4xl lg:text-5xl font-black mb-12 tracking-tight text-white">
                 Core Engine
               </h2>
-              <div className="space-y-8">
+              <div className="flex flex-wrap gap-3">
                 {technicalSkills.map((skill) => (
-                  <div key={skill.name} className="space-y-3">
-                    <div className="flex justify-between items-end">
-                      <span className="text-sm font-bold uppercase tracking-widest text-white/80">
-                        {skill.name}
-                      </span>
-                      <span className="text-sm font-black text-primary italic">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-primary transition-all duration-1000 ease-out" 
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
+                  <div 
+                    key={skill} 
+                    className="group px-5 py-3 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 flex items-center gap-3 cursor-default"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors group-hover:scale-150 duration-300" />
+                    <span className="text-sm font-bold tracking-wider text-white/80 group-hover:text-white transition-colors">
+                      {skill}
+                    </span>
                   </div>
                 ))}
               </div>
