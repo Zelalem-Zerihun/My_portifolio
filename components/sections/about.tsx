@@ -33,17 +33,7 @@ export function AboutSection() {
                 </p>
               </div>
 
-              {/* Quick stats */}
-              <div className="grid grid-cols-2 gap-12 mt-16 pt-16 border-t border-white/10">
-                <div className="group">
-                  <div className="text-4xl lg:text-5xl font-black text-white mb-2 italic group-hover:text-primary transition-colors">3+</div>
-                  <div className="text-[10px] font-black uppercase tracking-widest text-white/30">Years Experience</div>
-                </div>
-                <div className="group">
-                  <div className="text-4xl lg:text-5xl font-black text-white mb-2 italic group-hover:text-primary transition-colors">10+</div>
-                  <div className="text-[10px] font-black uppercase tracking-widest text-white/30">Projects Completed</div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
