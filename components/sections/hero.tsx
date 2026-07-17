@@ -26,11 +26,11 @@ export function HeroSection() {
             </div>
             
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-[0.9] tracking-tighter animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 text-white">
-              Crafting <span className="text-primary italic">High-Performance</span> <br className="hidden lg:block" /> Mobile Experiences.
+              I Build <span className="text-primary italic">Beautiful</span> <br className="hidden lg:block" /> Mobile Apps.
             </h1>
             
             <p className="text-lg md:text-xl text-white/60 mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-300">
-              Building scalable and beautiful mobile applications with clean architecture and modern state management. I blend technical precision with aesthetic mastery.
+              I'm a Flutter developer who cares about clean code and great design in equal measure. I build apps that look polished, run smoothly, and are a joy to use.
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-16 animate-in fade-in slide-in-from-bottom-16 duration-1000 delay-500">

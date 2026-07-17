@@ -36,7 +36,7 @@ export function CertificationsSection() {
             Validated <span className="text-primary italic">Expertise.</span>
           </h2>
           <p className="text-white/40 text-lg max-w-2xl mx-auto leading-relaxed">
-            Continuous learning is the bedrock of technical excellence. My certifications reflect a commitment to mastering the most rigorous industry standards.
+            I'm always learning something new. These certifications are proof of that — courses and exams I've taken to stay sharp and keep growing.
           </p>
         </div>
 

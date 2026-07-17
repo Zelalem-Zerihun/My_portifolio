@@ -21,7 +21,7 @@ export function Footer() {
               </h2>
               
               <p className="text-white/40 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-                Currently available for senior architectural roles or strategic consulting. Let's discuss how we can push the boundaries of what your mobile platform can achieve.
+                I'm currently available for new projects and opportunities. If you have an idea or need a developer, I'd love to hear about it.
               </p>
 
               <div className="flex flex-wrap items-center justify-center gap-6 pt-8">
@@ -31,7 +31,7 @@ export function Footer() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-16 text-base font-bold border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-sm hover:scale-105 transition-all">
-                  <Link href="https://drive.google.com/file/d/1GViRpB-U2VXgajhLBnLWD8m_swnw9FDI/view?usp=sharing" target="_blank">
+                  <Link href="https://drive.google.com/file/d/1R9HEs_QhbSB7xplrvev5H3oJOrXfDZwS/view?usp=sharing" target="_blank">
                     Download CV
                   </Link>
                 </Button>
@@ -44,7 +44,7 @@ export function Footer() {
             <div className="space-y-4 text-center md:text-left">
               <h3 className="text-xl font-black tracking-tighter">Zelalem Zerihun</h3>
               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20">
-                Mobile Development Architect
+                Flutter Mobile Developer
               </p>
             </div>
 
@@ -56,12 +56,6 @@ export function Footer() {
                 className="text-xs font-black uppercase tracking-widest text-white/40 hover:text-primary transition-colors"
               >
                 GitHub
-              </Link>
-              <Link
-                href="#"
-                className="text-xs font-black uppercase tracking-widest text-white/40 hover:text-primary transition-colors"
-              >
-                LinkedIn
               </Link>
               <Link
                 href="mailto:zelalem.zerihun.b@gmail.com"

@@ -122,15 +122,6 @@ const projectsData = {
     techStack: ["Next.js", "Firebase", "Tailwind CSS", "TypeScript", "Vercel"],
     image: "/icons/epsira_website.png",
     liveUrl: "https://epsira.vercel.app/",
-    screenshots: [
-      "/images/Epa/epa-1.jpg",
-      "/images/Epa/epa-2.jpg",
-      "/images/Epa/epa-3.jpg",
-      "/images/Epa/epa-4.jpg",
-      "/images/Epa/epa-5.jpg",
-      "/images/Epa/epa-6.jpg",
-      "/images/Epa/epa-7.jpg",
-    ]
   },
   "reviewers-app": {
     name: "The Reviewers App",
@@ -199,6 +190,74 @@ const projectsData = {
       "/images/finpilot/finpilot-3.png",
       "/images/finpilot/finpilot-4.png",
       "/images/finpilot/finpilot-5.png",
+    ]
+  },
+  "carcarelux": {
+    name: "CarCareLux",
+    category: "Car Wash Reservation • Web Platform",
+    overview: "A full-stack web application that lets customers in the US book and pay for car wash services online. It includes an admin dashboard for managing car washer profiles and automatically scheduling bookings based on availability.",
+    challenge: "The platform needed to handle real-time booking availability, integrate secure payment processing for US customers, and provide an intuitive admin experience for managing multiple car washer schedules without conflicts.",
+    solution: "I built the frontend with Next.js and the backend with Nest.js, integrated Stripe for secure payments, and designed an auto-scheduling system that assigns bookings to available washers based on their profiles and time slots.",
+    contributions: [
+      {
+        title: "Payment Integration",
+        icon: Shield,
+        description: "Integrated Stripe payment gateway for secure, PCI-compliant online transactions with support for refunds and receipts.",
+      },
+      {
+        title: "Auto-Scheduling",
+        icon: Cpu,
+        description: "Built an intelligent scheduling engine that automatically assigns bookings to available car washers based on their profiles and time slots.",
+      },
+      {
+        title: "Admin Dashboard",
+        icon: Layers,
+        description: "Developed a comprehensive admin panel for managing car washer profiles, viewing booking analytics, and handling customer requests.",
+      },
+    ],
+    techStack: ["Next.js", "Nest.js", "Stripe", "PostgreSQL", "TypeScript"],
+    image: "/images/CarLux/img-11.PNG",
+    liveUrl: "https://www.carcarelux.com/",
+    screenshots: [
+      "/images/CarLux/img-11.PNG",
+      "/images/CarLux/img-1.PNG",
+      "/images/CarLux/img-2.PNG",
+      "/images/CarLux/img-3.PNG",
+      "/images/CarLux/img-4.PNG",
+      "/images/CarLux/img-5.PNG",
+    ]
+  },
+  "merkato": {
+    name: "Merkato Market",
+    category: "Classifieds & Marketplace • Web Platform",
+    overview: "A US-based e-commerce and classifieds platform where users create buyer and seller accounts to post and browse listings — houses for sale, roommates, cars, and more — with paid post publishing via Stripe integration.",
+    challenge: "Building a multi-category marketplace required a flexible listing system, secure user authentication for both buyers and sellers, and a monetization model for premium listings without disrupting the user experience.",
+    solution: "I developed the platform with Next.js on the frontend and Nest.js on the backend. The listing system supports multiple categories with rich media uploads, and Stripe handles paid post publishing seamlessly.",
+    contributions: [
+      {
+        title: "Listing System",
+        icon: Layers,
+        description: "Built a flexible, multi-category listing engine supporting houses, cars, roommates, and more with rich media uploads and search.",
+      },
+      {
+        title: "Stripe Monetization",
+        icon: Shield,
+        description: "Implemented paid post publishing via Stripe, allowing sellers to promote their listings with a smooth checkout experience.",
+      },
+      {
+        title: "User Accounts",
+        icon: Zap,
+        description: "Designed a dual account system for buyers and sellers with profile management, listing history, and saved searches.",
+      },
+    ],
+    techStack: ["Next.js", "Nest.js", "Stripe", "TypeScript"],
+    image: "/images/Merkato/img-1.PNG",
+    liveUrl: "https://merkato88.com/",
+    screenshots: [
+      "/images/Merkato/img-1.PNG",
+      "/images/Merkato/img-2.PNG",
+      "/images/Merkato/img-3.PNG",
+      "/images/Merkato/img-4.PNG",
     ]
   },
 }

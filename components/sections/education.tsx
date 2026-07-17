@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog"
@@ -126,10 +125,10 @@ export function EducationSection() {
             {/* Section label */}
             <div className="lg:w-1/3">
               <h2 className="text-4xl lg:text-6xl font-black mb-8 leading-tight tracking-tighter text-white">
-                Academic <br /> & <br /> <span className="text-primary italic">Credentials.</span>
+                Education <br /> & <br /> <span className="text-primary italic">Credentials.</span>
               </h2>
               <p className="text-white/40 text-lg leading-relaxed">
-                A testament to rigorous training, academic excellence, and recognized professional standards.
+                Where I studied, what I've earned, and the people who vouch for my work.
               </p>
             </div>
 
@@ -139,21 +138,16 @@ export function EducationSection() {
               <div className="space-y-8">
                 <div className="flex items-center gap-3">
                   <GraduationCap className="h-6 w-6 text-primary" />
-                  <h3 className="text-xl font-bold uppercase tracking-tight text-white">Academic Foundation</h3>
+                  <h3 className="text-xl font-bold uppercase tracking-tight text-white">Where I Studied</h3>
                 </div>
                 <div className="p-10 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-primary/20 transition-all group">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-6">
                     <h4 className="text-2xl lg:text-3xl font-black text-white group-hover:text-primary transition-colors italic">
                       Bachelor of Science in Computer Science
                     </h4>
-                    <Badge className="w-fit h-fit rounded-full bg-primary text-primary-foreground font-black px-6 py-2 text-xs border-none">
-                      CGPA: 3.83
-                    </Badge>
                   </div>
                   <div className="flex items-center gap-4 text-white/40 font-bold uppercase tracking-widest text-xs">
                     <span>St. Mary&apos;s University</span>
-                    <span className="w-1 h-1 rounded-full bg-white/10" />
-                    <span className="text-primary italic">Graduated Top of Class</span>
                   </div>
                 </div>
               </div>

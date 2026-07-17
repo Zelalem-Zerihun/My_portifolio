@@ -7,36 +7,36 @@ import Image from "next/image"
 
 const experiences = [
   {
-    period: "2024 — PRESENT",
+    period: "CURRENT ROLE",
     role: "Flutter Mobile Developer",
     company: "Origin Technologies",
     location: "Addis Ababa, ET",
-    description: "Leading the development of CASA, an online real estate marketplace. Implementing state management with Riverpod, integrating RESTful APIs, and managing end-to-end deployment for iOS and Android.",
+    description: "I'm leading the build of CASA, an online real estate marketplace where buyers and sellers connect. My day-to-day involves managing state with Riverpod, wiring up REST APIs, and handling the full deployment pipeline for both iOS and Android.",
     tags: ["Flutter", "Riverpod", "Firebase", "iOS Deployment"],
     current: true,
   },
   {
-    period: "2023 — 2024",
+    period: "PREVIOUS",
     role: "Flutter Mobile Developer",
     company: "Addis Ababa University",
     location: "Ethiopian Press Agency Project",
-    description: "Contributed to Gazette Plus, an integrated news management system. Implemented secure authentication with Orchard ID, GraphQL integrations, and YouTube API for media streaming.",
+    description: "I helped build Gazette Plus, a news management app for the Ethiopian Press Agency. I set up secure login with Orchard ID, integrated GraphQL and REST APIs, and added YouTube streaming for media content.",
     tags: ["Flutter", "GraphQL", "REST API", "Orchard ID"],
   },
   {
-    period: "2022 — 2023",
+    period: "PREVIOUS",
     role: "Graduating Assistant",
     company: "St. Mary's University",
     location: "Addis Ababa, ET",
-    description: "Taught 'Internet Programming' course, covering HTML, CSS, JavaScript, and modern frameworks for second-year students.",
+    description: "I taught the Internet Programming course to second-year students — covering everything from HTML, CSS, and JavaScript to modern web frameworks. It was a great way to solidify my own understanding while helping others grow.",
     tags: ["Teaching", "Web Development", "Mentorship"],
   },
   {
-    period: "SUMMER 2024",
+    period: "BOOTCAMP",
     role: "Trainer",
     company: "iCog - Anyone Can Code",
-    location: "Summer Camp",
-    description: "Taught HTML, CSS, JavaScript, and Python to students. Guided hands-on projects and built foundational programming skills.",
+    location: "Bootcamp",
+    description: "I ran hands-on coding sessions teaching HTML, CSS, JavaScript, and Python to students at iCog's bootcamp. The focus was on getting them building real things from day one.",
     tags: ["HTML", "CSS", "JavaScript", "Python"],
   },
 ]
@@ -50,10 +50,10 @@ export function ExperienceSection() {
             {/* Section Heading */}
             <div className="lg:w-1/3">
               <h2 className="text-4xl lg:text-6xl font-black mb-8 leading-tight tracking-tighter text-white">
-                The <br /> Professional <br /> <span className="text-primary italic">Journey.</span>
+                Where <br /> I've <br /> <span className="text-primary italic">Worked.</span>
               </h2>
               <p className="text-white/40 text-lg leading-relaxed">
-                A chronological track of engineering excellence and architectural leadership in mobile and web technologies.
+                The teams I've been part of and the things I've built along the way.
               </p>
             </div>
 

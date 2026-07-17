@@ -15,11 +15,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Flutter Mobile Developer | Portfolio',
-  description: 'Highly motivated Flutter mobile developer specializing in building scalable and beautiful mobile applications with clean architecture.',
-  keywords: ['Flutter', 'Mobile Developer', 'iOS', 'Android', 'Riverpod', 'BLoC', 'Clean Architecture'],
-  authors: [{ name: 'Flutter Developer' }],
-  generator: 'v0.app',
+  title: 'Zelalem Zerihun | Mobile & Web Development Architect',
+  description: 'Portfolio of Zelalem Zerihun. Highly motivated mobile and web developer specializing in building scalable, beautiful applications with Flutter, Next.js, and clean architecture.',
+  keywords: ['Zelalem Zerihun', 'Flutter Developer', 'Mobile Developer', 'Web Developer', 'Next.js', 'React', 'iOS', 'Android', 'Software Engineer', 'Portfolio'],
+  authors: [{ name: 'Zelalem Zerihun' }],
+  creator: 'Zelalem Zerihun',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://zelalem-zerihun.vercel.app/',
+    title: 'Zelalem Zerihun | Mobile & Web Development Architect',
+    description: 'Portfolio of Zelalem Zerihun. Highly motivated mobile and web developer specializing in building scalable, beautiful applications.',
+    siteName: 'Zelalem Zerihun Portfolio',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zelalem Zerihun | Mobile & Web Development Architect',
+    description: 'Highly motivated mobile and web developer specializing in building scalable, beautiful applications.',
+    creator: '@zelalem_zerihun',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       {

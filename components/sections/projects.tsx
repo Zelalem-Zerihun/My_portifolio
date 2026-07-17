@@ -57,6 +57,26 @@ const webProjects = [
     image: "/icons/epsira_website.png",
     liveUrl: "https://epsira.vercel.app/",
   },
+  {
+    slug: "carcarelux",
+    name: "CarCareLux",
+    category: "Car Wash Reservation",
+    description: "A full-stack web app that lets customers in the US book and pay for car wash services online, with an admin dashboard for managing washers and scheduling.",
+    features: ["Stripe payment integration", "Admin dashboard with auto-scheduling", "Car washer profile management"],
+    tags: ["Next.js", "Nest.js", "Stripe", "PostgreSQL"],
+    image: "/images/CarLux/img-11.PNG",
+    liveUrl: "https://www.carcarelux.com/",
+  },
+  {
+    slug: "merkato",
+    name: "Merkato Market",
+    category: "Classifieds & Marketplace",
+    description: "A US-based classifieds platform where users create buyer and seller accounts to post and browse listings — from houses and cars to roommates — with paid publishing via Stripe.",
+    features: ["Buyer & seller account system", "Paid post publishing via Stripe", "Multi-category listings"],
+    tags: ["Next.js", "Nest.js", "Stripe"],
+    image: "/images/Merkato/img-1.PNG",
+    liveUrl: "https://merkato88.com/",
+  },
 ]
 
 export function ProjectsSection() {
@@ -69,10 +89,10 @@ export function ProjectsSection() {
             <div className="flex flex-col lg:flex-row items-end justify-between gap-8 mb-16">
               <div className="max-w-2xl">
                 <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight text-white">
-                  Mobile <span className="text-primary italic">Specialization.</span>
+                  Mobile <span className="text-primary italic">Apps.</span>
                 </h2>
                 <p className="text-white/40 text-lg leading-relaxed">
-                  End-to-end native & cross-platform applications built for scale. Focusing on performance, security, and seamless user experiences.
+                  Cross-platform apps I've built from the ground up — focused on making things fast, reliable, and genuinely nice to use.
                 </p>
               </div>
               <div className="flex items-center gap-4 text-white/20">
@@ -152,10 +172,10 @@ export function ProjectsSection() {
           <div>
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight text-white">
-                Web <span className="text-primary italic">Architectures.</span>
+                Web <span className="text-primary italic">Projects.</span>
               </h2>
               <p className="text-white/40 text-lg max-w-2xl mx-auto leading-relaxed">
-                Custom localized solutions for complex content management and high-fidelity media streaming.
+                Web apps I've worked on — from content platforms to media-heavy sites.
               </p>
             </div>
 

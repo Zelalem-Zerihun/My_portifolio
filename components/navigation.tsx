@@ -59,8 +59,8 @@ export function Navigation() {
               ))}
             </div>
             <Button asChild className="rounded-full bg-primary text-primary-foreground font-black text-[10px] uppercase tracking-[0.2em] px-6 hover:scale-105 transition-transform">
-              <Link href="https://drive.google.com/file/d/1GViRpB-U2VXgajhLBnLWD8m_swnw9FDI/view?usp=sharing" target="_blank">
-                Resume
+              <Link href="https://drive.google.com/file/d/1R9HEs_QhbSB7xplrvev5H3oJOrXfDZwS/view?usp=sharing" target="_blank">
+                CV
               </Link>
             </Button>
           </div>
@@ -87,8 +87,8 @@ export function Navigation() {
                   ))}
                   <div className="pt-8">
                     <Button asChild size="lg" className="w-full rounded-full bg-primary text-primary-foreground font-black text-xs uppercase tracking-widest h-14">
-                      <Link href="https://drive.google.com/file/d/1GViRpB-U2VXgajhLBnLWD8m_swnw9FDI/view?usp=sharing" target="_blank">
-                        Download Resume
+                      <Link href="https://drive.google.com/file/d/1R9HEs_QhbSB7xplrvev5H3oJOrXfDZwS/view?usp=sharing" target="_blank">
+                        Download CV
                       </Link>
                     </Button>
                   </div>

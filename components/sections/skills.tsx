@@ -15,22 +15,22 @@ const architecturalPrinciples = [
   {
     title: "Mobile First",
     icon: Smartphone,
-    description: "Responsive & adaptive mobile ecosystems",
+    description: "I design for phones first, then scale up",
   },
   {
     title: "Clean Design",
     icon: Layers,
-    description: "Modular & scalable code structures",
+    description: "Code that's easy to read, change, and grow",
   },
   {
     title: "State Management",
     icon: Gauge,
-    description: "Predictable & efficient data flow",
+    description: "Keeping app data consistent and fast",
   },
   {
     title: "API Integration",
     icon: Globe,
-    description: "Robust & secure backend communication",
+    description: "Connecting apps to backends reliably",
   },
 ]
 

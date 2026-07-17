@@ -9,29 +9,27 @@ export function AboutSection() {
             {/* Section label */}
             <div className="lg:w-1/3">
               <h2 className="text-4xl lg:text-6xl font-black mb-8 leading-tight tracking-tighter text-white">
-                The <br /> Human <br /> <span className="text-primary italic">Element.</span>
+                A Bit <br /> About <br /> <span className="text-primary italic">Me.</span>
               </h2>
               <p className="text-white/40 text-lg leading-relaxed">
-                Blending academic excellence with a relentless drive for engineering innovation.
+                Who I am beyond the code — what drives me and how I got here.
               </p>
             </div>
 
             {/* Content */}
             <div className="lg:w-2/3">
               <p className="text-xl lg:text-2xl text-white leading-relaxed mb-8 font-medium">
-                Highly motivated and passionate software developer, graduated top of my class with a{" "}
-                <span className="text-primary italic font-black">3.83 CGPA</span>.
+                I'm a software developer who loves building things that people actually enjoy using.
               </p>
               <div className="space-y-6 text-white/60 leading-relaxed text-lg">
                 <p>
-                  I have a deep interest in creating visually appealing and intuitive software while 
-                  mastering the complex logic behind it. As a quick learner, I am driven by curiosity 
-                  and a strong dedication to continuously improving my skills and expertise.
+                  I love crafting software that looks great and works even better. There's something
+                  deeply satisfying about getting both the design and the logic just right. I pick things
+                  up quickly, and I'm always looking for the next thing to learn.
                 </p>
                 <p>
-                  My focus is on building high-quality mobile applications using Flutter with clean 
-                  architecture principles, ensuring maintainable, scalable, and performant solutions 
-                  that deliver exceptional user experiences.
+                  Most of my work lives in the Flutter ecosystem — building mobile apps with clean
+                  architecture that are easy to maintain, fast to run, and genuinely enjoyable to use.
                 </p>
               </div>
 

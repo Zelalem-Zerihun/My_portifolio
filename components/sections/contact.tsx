@@ -1,11 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Github, Phone, Send, Copy, Check, Send as Telegram, ShieldCheck, Globe } from "lucide-react"
+import { Mail, Github, Phone, Copy, Check, Send as Telegram } from "lucide-react"
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 
@@ -19,11 +15,6 @@ const contactInfo = {
 export function ContactSection() {
   const { toast } = useToast()
   const [copied, setCopied] = useState(false)
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
 
   const copyEmail = async () => {
     await navigator.clipboard.writeText(contactInfo.email)
@@ -35,25 +26,6 @@ export function ContactSection() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const subject = encodeURIComponent(`Portfolio Message from ${formState.name}`)
-    const body = encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`)
-    
-    window.location.href = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`
-    
-    toast({
-      title: "Message Initiated!",
-      description: "Opening your email client to send the message.",
-    })
-
-    setFormState({
-      name: "",
-      email: "",
-      message: "",
-    })
-  }
-
   return (
     <section id="contact" className="py-24 lg:py-32 bg-black">
       <div className="container mx-auto px-6 lg:px-12">
@@ -62,18 +34,17 @@ export function ContactSection() {
             {/* Section label */}
             <div className="lg:w-1/3">
               <h2 className="text-4xl lg:text-6xl font-black mb-8 leading-tight tracking-tighter text-white">
-                Initiate <br /> <span className="text-primary italic">Contact.</span>
+                Let's <br /> <span className="text-primary italic">Talk.</span>
               </h2>
               <p className="text-white/40 text-lg leading-relaxed">
-                Currently open for strategic mobile architecture roles or high-impact consulting projects.
+                I'm open to new opportunities — whether that's a full-time role, a freelance project, or just a conversation about an idea.
               </p>
             </div>
 
             {/* Content */}
             <div className="lg:w-2/3">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Contact Methods */}
-                <div className="space-y-6">
                   {/* Email */}
                   <div 
                     onClick={copyEmail}
@@ -131,49 +102,6 @@ export function ContactSection() {
                       <p className="text-sm font-bold text-white">@Zelalem-Zerihun</p>
                     </div>
                   </Link>
-                </div>
-
-                {/* Contact Form */}
-                <div className="p-8 lg:p-10 rounded-[3rem] bg-white/5 border border-white/5">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-white/20 ml-2">Name</label>
-                      <Input
-                        placeholder="Your name"
-                        value={formState.name}
-                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        className="bg-white/5 border-white/10 rounded-2xl h-14 focus:border-primary transition-all text-white"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-white/20 ml-2">Email</label>
-                      <Input
-                        type="email"
-                        placeholder="your@email.com"
-                        value={formState.email}
-                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        className="bg-white/5 border-white/10 rounded-2xl h-14 focus:border-primary transition-all text-white"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-white/20 ml-2">Message</label>
-                      <Textarea
-                        placeholder="Project requirements, architectural inquiry, or just a hello..."
-                        rows={6}
-                        value={formState.message}
-                        onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                        className="bg-white/5 border-white/10 rounded-3xl p-6 focus:border-primary transition-all text-white resize-none"
-                        required
-                      />
-                    </div>
-                    <Button type="submit" className="w-full rounded-2xl h-16 bg-primary text-primary-foreground font-black uppercase tracking-[0.2em] text-xs hover:scale-[1.02] transition-all">
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Message
-                    </Button>
-                  </form>
-                </div>
               </div>
             </div>
           </div>
