@@ -31,7 +31,7 @@ export function Footer() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-16 text-base font-bold border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-sm hover:scale-105 transition-all">
-                  <Link href="https://drive.google.com/file/d/1R9HEs_QhbSB7xplrvev5H3oJOrXfDZwS/view?usp=sharing" target="_blank">
+                  <Link href="https://drive.google.com/file/d/1DfMeFCA1Mf9ljE_TIWi8ZYModO20gtrJ/view?usp=sharing" target="_blank">
                     Download CV
                   </Link>
                 </Button>
